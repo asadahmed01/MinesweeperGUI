@@ -1,0 +1,15 @@
+﻿.outer {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 500px;
+    text-align: center;
+}
