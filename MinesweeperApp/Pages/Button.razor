@@ -1,9 +1,10 @@
-﻿<button type="button" >@Content</button>
+﻿<button type="button" @onclick="OnClickCallback">@Content</button>
 
 
 @code {
-  [Parameter]
+    [Parameter]
   public string Content { get; set; }
 
-
+ [Parameter]
+ public EventCallback<MouseEventArgs>OnClickCallback { get; set; }
 }

@@ -92,10 +92,11 @@ using MinesweeperApp.Shared;
 #nullable restore
 #line 4 "C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\Pages\Button.razor"
        
-  [Parameter]
+    [Parameter]
   public string Content { get; set; }
 
-
+ [Parameter]
+ public EventCallback<MouseEventArgs>OnClickCallback { get; set; }
 
 #line default
 #line hidden

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ImTools;
+using MinesweeperApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,160 +9,49 @@ namespace MinesweeperApp.Pages
 {
     public partial class Index
     {
-        public class Board
+        static Board board = new Board(8);
+        static Cell cell;
+        static List<Cell> cells = new List<Cell>();
+
+        protected override Task OnInitializedAsync()
         {
+            
+            
+            LoadCells();
+            return base.OnInitializedAsync();
+        }
+        public bool IsTaskRunning { get; set; }
+        
 
-            public int Size { get; set; }
-            public Cell[,] Grid { get; set; }
-
-            //add difficulty here
-
-            public Board(int size)
-            {
-                Size = size;
-                //set the size of the board 
-                Grid = new Cell[Size, Size];
-                //initialize each cell on the board
-                for (int i = 0; i < Size; i++)
-                {
-                    for (int j = 0; j < Size; j++)
-                    {
-                        Grid[i, j] = new Cell(i, j);
-                    }
-                }
-            }
-
-            public void MarkVisited(int x, int y)
-            {
-                if (IsSafe(x, y))
-                    Grid[x, y].Visited = true;
-            }
-
-            public void SetupLiveNeihbors()
-            {
-
-                var random = new Random();
-
-                for (int i = 0; i < Size; i++)
-                {
-                    int x = random.Next(1, Size);
-                    int y = random.Next(1, Size);
-                    for (int j = 0; j < Size; j++)
-                    {
-                        Grid[x, y].IsLive = true;
-
-                    }
-                }
-            }
-
-            public void CalculateLiveNeighbors(Cell cell)
-            {
-                if (IsSafe(cell.Rows + 1, cell.Columns))
-                {
-                    if (Grid[cell.Rows + 1, cell.Columns].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-                if (IsSafe(cell.Rows - 1, cell.Columns))
-                {
-                    if (Grid[cell.Rows - 1, cell.Columns].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-                if (IsSafe(cell.Rows, cell.Columns + 1))
-                {
-                    if (Grid[cell.Rows, cell.Columns + 1].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-                if (IsSafe(cell.Rows, cell.Columns - 1))
-                {
-                    if (Grid[cell.Rows, cell.Columns - 1].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-
-                if (IsSafe(cell.Rows - 1, cell.Columns - 1))
-                {
-                    if (Grid[cell.Rows - 1, cell.Columns - 1].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-
-                if (IsSafe(cell.Rows - 1, cell.Columns + 1))
-                {
-                    if (Grid[cell.Rows - 1, cell.Columns + 1].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-
-                if (IsSafe(cell.Rows + 1, cell.Columns + 1))
-                {
-                    if (Grid[cell.Rows + 1, cell.Columns + 1].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-
-                if (IsSafe(cell.Rows + 1, cell.Columns - 1))
-                {
-                    if (Grid[cell.Rows + 1, cell.Columns - 1].IsLive)
-                        cell.NumberOfNeighborsLve++;
-                }
-
-            }
-
-            public void Floodfill(int row, int col)
-            {
-                if (IsSafe(row, col))
-                {
-                    if ((!Grid[row, col].IsLive) && (!Grid[row, col].Visited))
-                    {
-                        Grid[row, col].Visited = true;
-                        if (Grid[row, col].NumberOfNeighborsLve > 0)
-                        {
-                            Grid[row, col].Visited = true;
-                            return;
-                        }
-                        else
-                        {
-
-
-                            //flood fill the east
-                            Floodfill(row + 1, col);
-                            //flood fill to the west
-                            Floodfill(row - 1, col);
-                            //flood to the north
-                            Floodfill(row, col + 1);
-                            //to the south
-                            Floodfill(row, col - 1);
-                        }
-
-                    }
-
-                }
-            }
-
-            public bool IsSafe(int x, int y)
-            {
-                if ((x >= 0 && x < Size) && (y >= 0 && y < Size))
-                    return true;
-                else
-                    return false;
-            }
+        void Name(Cell cell)
+        {
+            //IsTaskRunning = true;
+            Console.WriteLine(cell.Rows+ " " + cell.Columns);
+            Console.WriteLine(cell.NumberOfNeighborsLve);
+            //board.CalculateLiveNeighbors(board.Grid[x, y]);
+            board.Floodfill(cell.Rows, cell.Columns);
+            if(cell.IsLive)
+                Console.WriteLine("bomb");
 
         }
 
-
-
-
-        public class Cell
+        private void LoadCells()
         {
-
-            public int Rows { get; set; }
-            public int Columns { get; set; }
-            public bool Visited { get; set; }
-            public bool IsLive { get; set; }
-            public int NumberOfNeighborsLve { get; set; }
-
-            public Cell(int x, int y)
+            board.SetupLiveNeihbors();
+            for (int i = 0; i < board.Size; i++)
             {
-                Rows = x;
-                Columns = y;
+                for (int j = 0; j < board.Size; j++)
+                {
+                    int x = i;
+                    int y = j;
+                    cell = board.Grid[x, y];
+                    board.CalculateLiveNeighbors(cell);
+                    cells.Add(cell);
+                }
             }
-
         }
+
+
+        
     }
 }

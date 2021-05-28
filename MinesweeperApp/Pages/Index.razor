@@ -1,21 +1,47 @@
 ﻿@page "/"
+@using MinesweeperApp.Models
+
+@inject IJSRuntime JsRuntime;
 
 <h1>Hello, world!</h1>
 
+@{
+    
+    //board.SetupLiveNeihbors();
+    
+}
 <div class="outter">
   <div class="inner">
-      
-    @for (var i = 0; i < 8; i++)
+    
+    @foreach(var item in cells)
     {
-      @for (var j = 0; j < 8; j++)
-      {
-
-        <Button Content=" " ></Button>
+        if(item.Visited)
+        {
+             if (item.IsLive)
+            {
+                    <button type="button" >*</button>
         
+            }
 
-      }
+            if (item.NumberOfNeighborsLve > 0)
+            {
+                <button type="button">@item.NumberOfNeighborsLve</button>
+                    
+            }
 
+            else
+            {
+                <button type="button" ></button>
+            }   
+        }
+
+        else
+        {
+           <button type="button" @onclick="(() => Name(item))">?</button>
+        }
+            
     }
-
+    
   </div>
 </div>
+
