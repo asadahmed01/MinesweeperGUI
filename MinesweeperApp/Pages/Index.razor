@@ -5,11 +5,7 @@
 
 <h1>Hello, world!</h1>
 
-@{
-    
-    //board.SetupLiveNeihbors();
-    
-}
+<p class="text-danger">@message</p>
 <div class="outter">
   <div class="inner">
     
@@ -19,27 +15,27 @@
         {
              if (item.IsLive)
             {
-                    <button type="button" >*</button>
+                    <button style="background-color:red"  ></button>
         
             }
 
-            if (item.NumberOfNeighborsLve > 0)
+            else if (item.NumberOfNeighborsLve > 0)
             {
-                <button type="button">@item.NumberOfNeighborsLve</button>
+                <button class="btn btn-info" >@item.NumberOfNeighborsLve</button>
                     
             }
 
             else
             {
-                <button type="button" ></button>
+                <button style="background-color:green; color:white"></button>
             }   
         }
 
         else
         {
-           <button type="button" @onclick="(() => Name(item))">?</button>
+           <button  type="button" @onclick="(() => Name(item))">?</button>
         }
-            
+          
     }
     
   </div>

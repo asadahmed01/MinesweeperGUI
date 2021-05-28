@@ -11,7 +11,7 @@ namespace MinesweeperApp.Models
 
             public int Size { get; set; }
             public Cell[,] Grid { get; set; }
-
+        public List<Cell> mines { get; set; }
             //add difficulty here
 
             public Board(int size)
@@ -40,17 +40,19 @@ namespace MinesweeperApp.Models
             {
 
                 var random = new Random();
-
+           
                 for (int i = 0; i < Size; i++)
                 {
                     int x = random.Next(1, Size);
                     int y = random.Next(1, Size);
                     for (int j = 0; j < Size; j++)
                     {
+                    
                         Grid[x, y].IsLive = true;
-
+                        
                     }
-                }
+               
+            }
             
             }
 
@@ -142,6 +144,24 @@ namespace MinesweeperApp.Models
                     return false;
             }
 
-        
+        public void RevealAllMines ()
+        {
+            mines = new List<Cell>();
+            for (int i = 0; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    int x = i;
+                    int y = j;
+                    if(Grid[x, y].IsLive)
+                    {
+                        Grid[x, y].Visited = true;
+                        mines.Add(Grid[x, y]);
+                    }
+                }
+            }
+            
+        }
+
     }
 }

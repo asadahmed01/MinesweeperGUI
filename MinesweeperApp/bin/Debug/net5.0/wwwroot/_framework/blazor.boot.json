@@ -196,11 +196,11 @@
       "mscorlib.dll": "sha256-jU85t8bOVm2PPQRkPJ1kS0nCJIyBjjlet2IR1d9m+RI=",
       "netstandard.dll": "sha256-B6gmXEMfYgOuaOR1g1cGHLn2kDlZYAah4K2XNUZbTs4=",
       "System.Private.CoreLib.dll": "sha256-XY0bl1U8F\/iSbQzkmIHM8UtE\/R9VntZoy\/kMbvuMjTA=",
-      "MinesweeperApp.dll": "sha256-UPdAx5u+ODT+hhMVb+gdHid+KpHds7fjjwO11ajp3H8="
+      "MinesweeperApp.dll": "sha256-klJPMKP\/CzllUqyBi2AenZAmsR7LqnIxswHaswF1tHw="
     },
     "lazyAssembly": null,
     "pdb": {
-      "MinesweeperApp.pdb": "sha256-AgF0TBz7MJDf\/+FArVWhPPuB4Zr5\/WRzZzOVanEPdlI="
+      "MinesweeperApp.pdb": "sha256-paJb1hLkBZOL3d5QnusaDi\/CPVZ6V5kwah3ghJ1\/9Bg="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-OEDZp6noMH3AdT8qd0zd7ZXzy2CsPQ+CZeQnYmRoVWo=",

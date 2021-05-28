@@ -13,9 +13,9 @@ namespace MinesweeperApp.Pages
         static Cell cell;
         static List<Cell> cells = new List<Cell>();
 
+        private string message;
         protected override Task OnInitializedAsync()
         {
-            
             
             LoadCells();
             return base.OnInitializedAsync();
@@ -26,13 +26,17 @@ namespace MinesweeperApp.Pages
         void Name(Cell cell)
         {
             //IsTaskRunning = true;
-            Console.WriteLine(cell.Rows+ " " + cell.Columns);
-            Console.WriteLine(cell.NumberOfNeighborsLve);
-            //board.CalculateLiveNeighbors(board.Grid[x, y]);
-            board.Floodfill(cell.Rows, cell.Columns);
-            if(cell.IsLive)
-                Console.WriteLine("bomb");
+            int x = cell.Rows;
+            int y = cell.Columns;
 
+            if (cell.IsLive)
+            {
+                message = "You Lost!";
+                board.RevealAllMines();
+                return;
+            }
+            board.Floodfill(x, y);
+            
         }
 
         private void LoadCells()
