@@ -3,41 +3,49 @@
 
 @inject IJSRuntime JsRuntime;
 
-<h1>Hello, Welcome To The Game.</h1>
 
-<p class="text-danger">@minutes.ToString("00") : @seconds.ToString("00")</p>
-<div class="outter">
-  <div class="inner">
+<div class="container-fluid">
     
-    @foreach(var item in cells)
-    {
-        if(item.Visited)
-        {
-             if (item.IsLive)
-            {
-                    
-                <button class="bomb">💣</button>
-            }
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Hello, Welcome To The Game.</h1>
+    <p><sapn class="bg-warning rounded p-2 pr-5">@minutes.ToString("00") : @seconds.ToString("00")</sapn> <span class="pl-5 bg-info rounded p-2 ">Clicks:@clicks</span></p>
+    <p>Try to avoid the mines, right-click to flag a cell.</p>
+    <p class="text-danger fs-1">@gameEnd</p>
+  </div>
+</div>
 
-            else if (item.NumberOfNeighborsLve > 0)
+      <div class="inner">
+    
+        @foreach(var item in cells)
+        {
+            if(item.Visited)
             {
-                <button class="uncleared">@item.NumberOfNeighborsLve</button>
+                 if (item.IsLive)
+                {
                     
+                    <button class="bomb">💣</button>
+                }
+
+                else if (item.NumberOfNeighborsLve > 0)
+                {
+                    <button class="uncleared">@item.NumberOfNeighborsLve</button>
+                    
+                }
+
+                else
+                {
+                    <button class="cleared"></button>
+                }   
             }
 
             else
             {
-                <button class="cleared"></button>
-            }   
-        }
-
-        else
-        {
-           <button class="uncleared"  @onclick="(() => Name(item))">?</button>
-        }
+               <button class="uncleared" disabled=@IsDisabled  @onclick="(() => Name(item))" @oncontextmenu="(() => flagBtn(item))" @oncontextmenu:preventDefault="true" >@(item.IsFlaged ? "🚩" : "?")</button>
+            }
           
-    }
+        }
     
-  </div>
-</div>
+      </div>
 
+</div>

@@ -90,7 +90,7 @@ using MinesweeperApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\Shared\NavMenu.razor"
+#line 19 "C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

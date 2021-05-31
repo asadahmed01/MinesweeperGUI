@@ -1,5 +1,6 @@
 ﻿using ImTools;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using MinesweeperApp.Models;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,12 @@ namespace MinesweeperApp.Pages
         private static System.Timers.Timer aTimer { get; set; }
         static int seconds;
         static int minutes;
+        static int clicks;
+        bool IsDisabled = false;
+        bool onrightClick = false;
+        private string gameEnd;
+        
+
         protected override Task OnInitializedAsync()
         {
             
@@ -31,15 +38,10 @@ namespace MinesweeperApp.Pages
             aTimer.Enabled = true;
             return base.OnInitializedAsync();
         }
-        public bool IsTaskRunning { get; set; }
-
-        
-
+       
         void Name(Cell cell)
         {
-            //IsTaskRunning = true;
-           
-
+            clicks++;
             int x = cell.Rows;
             int y = cell.Columns;
 
@@ -47,13 +49,13 @@ namespace MinesweeperApp.Pages
             {
                 
                 board.RevealAllMines();
-
+                IsDisabled = true;
+                gameEnd = "Game Over!";
                 aTimer.Stop();
                 aTimer.Dispose();
-                return;
+                //return;
             }
 
-            
             board.Floodfill(x, y);
         }
 
@@ -83,8 +85,24 @@ namespace MinesweeperApp.Pages
                 minutes++;
                 seconds = 0;
             }
+            
             StateHasChanged();
         }
-       
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (board.isAllRevealed(cells))
+            {
+                Console.WriteLine("all revealed");
+            }
+            base.OnAfterRender(firstRender);
+        }
+
+
+       void flagBtn(Cell cell)
+        {
+            board.RightClicked(cell);
+            
+        }
     }
 }

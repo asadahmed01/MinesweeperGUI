@@ -11,6 +11,7 @@ namespace MinesweeperApp.Models
 
             public int Size { get; set; }
             public Cell[,] Grid { get; set; }
+
         public List<Cell> mines { get; set; }
             //add difficulty here
 
@@ -163,5 +164,19 @@ namespace MinesweeperApp.Models
             
         }
 
+
+        //return true if all non-live cells are revealed
+        public bool isAllRevealed (List<Cell> cells)
+        {
+            return cells.All(item => !item.IsLive && item.Visited);
+        }
+
+        public bool RightClicked(Cell cell)
+        {
+            //if (cell.IsFlaged)
+            //    return cell.IsFlaged = false;
+            //else 
+                return cell.IsFlaged = !cell.IsFlaged;
+        }
     }
 }

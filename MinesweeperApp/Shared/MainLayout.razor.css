@@ -6,10 +6,18 @@
 
 .main {
     flex: 1;
+    
 }
 
 .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+footer {
+    display:none;
+    position: fixed;
+    bottom: 0;
+    
 }
 
 .top-row {
@@ -43,6 +51,16 @@
     .top-row a, .top-row .btn-link {
         margin-left: 0;
     }
+
+    footer {
+        display: block;
+        
+        bottom: 0;
+        width: 100%;
+        background-color: lightgray;
+        margin-top: 10px;
+        padding: 5px;
+    }
 }
 
 @media (min-width: 641px) {
@@ -55,6 +73,7 @@
         height: 100vh;
         position: sticky;
         top: 0;
+        
     }
 
     .top-row {
@@ -67,4 +86,6 @@
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
     }
+
+    
 }

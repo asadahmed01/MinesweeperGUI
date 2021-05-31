@@ -11,6 +11,7 @@ namespace MinesweeperApp.Models
         public int Columns { get; set; }
         public bool Visited { get; set; }
         public bool IsLive { get; set; }
+        public bool IsFlaged { get; set; }
         public int NumberOfNeighborsLve { get; set; }
 
         public Cell(int x, int y)

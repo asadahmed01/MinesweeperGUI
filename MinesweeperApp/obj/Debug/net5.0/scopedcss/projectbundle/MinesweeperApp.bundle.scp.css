@@ -18,55 +18,161 @@ button[b-x4jo15ojz0] {
         background-color: #eaeaea;
     }
 /* /Pages/Index.razor.rz.scp.css */
+*[b-uz0pier1fu] {
+    box-sizing: border-box;
+    
+}
+
 .outer[b-uz0pier1fu] {
+    max-width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    
 }
+
+
 
 .inner[b-uz0pier1fu] {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    width: 500px;
     text-align: center;
+    padding: 10px;
+    width:40%;
+    margin:auto;
+    
 }
 
 
 .uncleared[b-uz0pier1fu] {
-    height: 60px;
+    height: 80px;
+    width:80px;
     background-color: #fff;
     border-radius: 3px;
     border: 1px solid #c4c4c4;
    
     font-size: 2rem;
     color: #333;
-    background-color:azure;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 0 0 rgba(255, 255, 255, .45), inset 0 -1px 0 0 rgba(255, 255, 255, .15), 0 1px 0 0 rgba(255, 255, 255, .15);
     text-shadow: 0 1px rgba(255, 255, 255, .4);
 }
 
 .bomb[b-uz0pier1fu] {
     background-color: red;
-    height: 60px;
+    animation-name: color-b-uz0pier1fu;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    background-color: red;
+    height: 80px;
+    width: 80px;
     border-radius: 3px;
     border: 1px solid #c4c4c4;
     font-size: 2rem;
-    color: #333;
+    color: red;
 }
 .uncleared:hover[b-uz0pier1fu] {
     background-color: #eaeaea;
+
 }
 
 .cleared[b-uz0pier1fu] {
     background: green;
-    height: 60px;
+    height: 80px;
+    width: 80px;
     border-radius: 3px;
     border: 1px solid #c4c4c4;
     font-size: 2rem;
     color: #333;
+}
+
+@keyframes color-b-uz0pier1fu {
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: white;
+    }
+
+    100% {
+        background-color: red;
+    }
+}
+
+@media (max-width: 640.98px) {
+    
+    h1[b-uz0pier1fu]{
+        font-size: 20px;
+        margin: 10px 0 30px 0;
+        font-weight:bold;
+    }
+
+
+    .inner[b-uz0pier1fu] {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        height:100%;
+    
+        position: absolute;
+        top: 90%;
+        left: 0;
+        width: 50%;
+        margin: auto;
+    }
+    .uncleared[b-uz0pier1fu] {
+        height: 50px;
+        width: 50px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        font-size: 1rem;
+    }
+
+    .bomb[b-uz0pier1fu] {
+        background-color: red;
+        animation-name: color-b-uz0pier1fu;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        
+        height: 50px;
+        width: 50px;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        font-size: 1rem;
+        color: red;
+    }
+
+    .cleared[b-uz0pier1fu] {
+        background: green;
+        height: 50px;
+        width: 50px;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    @keyframes color-b-uz0pier1fu {
+        0% {
+            background-color: red;
+        }
+
+        50% {
+            background-color: white;
+        }
+
+        100% {
+            background-color: red;
+        }
+    }
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-xhuck7imj9] {
@@ -77,10 +183,18 @@ button[b-x4jo15ojz0] {
 
 .main[b-xhuck7imj9] {
     flex: 1;
+    
 }
 
 .sidebar[b-xhuck7imj9] {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+footer[b-xhuck7imj9] {
+    display:none;
+    position: fixed;
+    bottom: 0;
+    
 }
 
 .top-row[b-xhuck7imj9] {
@@ -114,6 +228,16 @@ button[b-x4jo15ojz0] {
     .top-row a[b-xhuck7imj9], .top-row .btn-link[b-xhuck7imj9] {
         margin-left: 0;
     }
+
+    footer[b-xhuck7imj9] {
+        display: block;
+        
+        bottom: 0;
+        width: 100%;
+        background-color: lightgray;
+        margin-top: 10px;
+        padding: 5px;
+    }
 }
 
 @media (min-width: 641px) {
@@ -126,6 +250,7 @@ button[b-x4jo15ojz0] {
         height: 100vh;
         position: sticky;
         top: 0;
+        
     }
 
     .top-row[b-xhuck7imj9] {
@@ -138,6 +263,8 @@ button[b-x4jo15ojz0] {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
     }
+
+    
 }
 /* /Shared/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-5a7ltbp05a] {
@@ -163,6 +290,7 @@ button[b-x4jo15ojz0] {
 .nav-item[b-5a7ltbp05a] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    
 }
 
     .nav-item:first-of-type[b-5a7ltbp05a] {
