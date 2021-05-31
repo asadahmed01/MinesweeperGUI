@@ -457,7 +457,6 @@ C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\ref\Min
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\MinesweeperApp.pdb
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\bin\Debug\net5.0\wwwroot\_framework\dotnet.5.0.6.js.gz
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\bin\Debug\net5.0\wwwroot\_framework\dotnet.5.0.6.js
-C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\MinesweeperApp.csproj.AssemblyReference.cache
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\build-gz\cgrbx25n.gz
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\build-gz\ibgK6ftZ.gz
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\build-gz\Rcm5x+eG.gz
@@ -633,3 +632,4 @@ C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\build-g
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\bin\Debug\net5.0\wwwroot\_framework\DryIoc.dll.gz
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\bin\Debug\net5.0\wwwroot\_framework\DryIoc.dll
 C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\build-gz\DyC2uSdL.gz
+C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\obj\Debug\net5.0\MinesweeperApp.csproj.AssemblyReference.cache

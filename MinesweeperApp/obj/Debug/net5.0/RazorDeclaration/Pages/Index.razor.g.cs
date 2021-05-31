@@ -83,13 +83,14 @@ using MinesweeperApp.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\Pages\Index.razor"
+#line 3 "C:\Users\asada\Desktop\C#\MinesweeperApp\MinesweeperApp\Pages\Index.razor"
 using MinesweeperApp.Models;
 
 #line default
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/game")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
