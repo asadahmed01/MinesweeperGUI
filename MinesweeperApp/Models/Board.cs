@@ -172,11 +172,8 @@ namespace MinesweeperApp.Models
         }
 
         public bool RightClicked(Cell cell)
-        {
-            //if (cell.IsFlaged)
-            //    return cell.IsFlaged = false;
-            //else 
-                return cell.IsFlaged = !cell.IsFlaged;
+        { 
+            return cell.IsFlaged = !cell.IsFlaged;
         }
     }
 }

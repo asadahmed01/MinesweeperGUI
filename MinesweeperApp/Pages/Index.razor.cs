@@ -39,7 +39,7 @@ namespace MinesweeperApp.Pages
             return base.OnInitializedAsync();
         }
        
-        void Name(Cell cell)
+        void HandleClick(Cell cell)
         {
             clicks++;
             int x = cell.Rows;
@@ -103,6 +103,11 @@ namespace MinesweeperApp.Pages
         {
             board.RightClicked(cell);
             
+        }
+
+        private void Refresh()
+        {
+            NavigationManager.NavigateTo("/", true);
         }
     }
 }

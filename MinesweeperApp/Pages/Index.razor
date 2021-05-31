@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using MinesweeperApp.Models
-
+@inject NavigationManager NavigationManager;
 @inject IJSRuntime JsRuntime;
 
 
@@ -9,7 +9,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1>Hello, Welcome To The Game.</h1>
-    <p><sapn class="bg-warning rounded p-2 pr-5">@minutes.ToString("00") : @seconds.ToString("00")</sapn> <span class="pl-5 bg-info rounded p-2 ">Clicks:@clicks</span></p>
+    <p><sapn class="btn btn-warning">@minutes.ToString("00") : @seconds.ToString("00")</sapn> <span class="btn btn-info">Clicks:@clicks</span> <span class="btn btn-primary " @onclick="Refresh"> Play Again</span></p>
     <p>Try to avoid the mines, right-click to flag a cell.</p>
     <p class="text-danger fs-1">@gameEnd</p>
   </div>
@@ -41,7 +41,7 @@
 
             else
             {
-               <button class="uncleared" disabled=@IsDisabled  @onclick="(() => Name(item))" @oncontextmenu="(() => flagBtn(item))" @oncontextmenu:preventDefault="true" >@(item.IsFlaged ? "🚩" : "?")</button>
+               <button class="uncleared" disabled=@IsDisabled  @onclick="(() => HandleClick(item))" @oncontextmenu="(() => flagBtn(item))" @oncontextmenu:preventDefault="true" >@(item.IsFlaged ? "🚩" : "?")</button>
             }
           
         }
